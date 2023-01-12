@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="21507" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="21501"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="fRD-1l-P1O">
+            <objects>
+                <controller id="IGi-cB-aGO"/>
+            </objects>
+            <point key="canvasLocation" x="-17" y="-41"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="DVG-eu-qIc">
+            <objects>
+                <notificationController id="eaN-jZ-ZIi">
+                    <items>
+                        <label width="1" height="85" alignment="left" text="Your last measurement was abnormal, please check again?" textAlignment="center" numberOfLines="8" id="Bgm-if-rPf"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="gEQ-G5-nqU"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="Bgm-if-rPf" id="Qsn-pE-bnz"/>
+                        <segue destination="NlG-5o-KKD" kind="relationship" relationship="dynamicNotificationInterface" id="DG0-4k-wiQ"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="324" y="-58"/>
+        </scene>
+        <!--Dynamic Notification Interface Controller-->
+        <scene sceneID="KXQ-l3-HWo">
+            <objects>
+                <controller id="NlG-5o-KKD"/>
+            </objects>
+            <point key="canvasLocation" x="624" y="-54"/>
+        </scene>
+    </scenes>
+</document>

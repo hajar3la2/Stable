@@ -35,7 +35,7 @@
 "Maximum" = "الأعلى";
 "Minimum" = "الأدنى";
 "Rminder" = "تذكير";
-"Your last measurement was abnormal, would you like to check again?" = "قياسك الأخير لم يكن طبيعي، هل تريد التحقق منه مرة أخرى؟";
+"Your last measurement was abnormal, please check again?" = "قياسك الأخير لم يكن طبيعي، هل تريد التحقق منه مرة أخرى؟";
 "OK" = "حسنًا";
 "Dismiss" = "تجاهل";
 

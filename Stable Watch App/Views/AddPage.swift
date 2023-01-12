@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct AddPage: View {
     
@@ -14,7 +15,7 @@ struct AddPage: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
-//    @State private var amount:Int = 0
+    //    @State private var amount:Int = 0
     
     @State private var selection :Int = 0
     
@@ -33,7 +34,7 @@ struct AddPage: View {
                         .tag("\(number)")
                 }
             })
-//            .accessibilityValue(selection)
+            //            .accessibilityValue(selection)
             .frame(width: 70 , height: 85)
             .labelsHidden()
             
@@ -41,15 +42,49 @@ struct AddPage: View {
             Button("Save"){
                 DataController().addMeasurement(amount: selection, context: managedObjectContext)
                 dismiss()
+                
+                //requesting permission for notification
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (success, error) in
+                    if success{
+                        print("All set for requesting notification permission in save button")
+                    } else if let error = error {
+                        print("a problem in requesting notification permission in save button \(error.localizedDescription)")
+                    }
+                }
+                
+                //schedule notification
+                let content = UNMutableNotificationContent()
+                content.title = "Reminder"
+                content.subtitle = "you have 10 sec"
+                content.sound = .default
+                content.categoryIdentifier = "myCategory"
+                let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+                UNUserNotificationCenter.current().setNotificationCategories([category])
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+                let request = UNNotificationRequest(identifier: "milk", content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request) { (error) in
+                    if let error = error{
+                        print(error.localizedDescription)
+                    }else{
+                        print("scheduled successfully")
+                    }
+                }
+                
             }
             .padding(.top)
             .accessibilityLabel("Save button")
         }
     }
-    
-
 }
-//            Text("You selected: \(selection)")
+
+
+struct NotificationView: View {
+    @Environment(\.presentationMode) var presentationMode
+    var body: some View {
+        Text("Your last measurement was abnormal, please check again?")
+    }
+}
+
 
 
 
