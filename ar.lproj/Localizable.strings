@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Stable
+
+  Created by Hajar on 1/9/23.
+  
+*/
+
+"Stable" = "ستيبل";
+"Monitor your glucose measurements and keep a healthy lifestyle from your apple watch" = "راقب مستويات سكر الدم وواكب نمط حياة صحي من ساعة أبل";
+"Add +" = "أضف +";
+"Week Summary" = "ملخص الأسبوع";
+"Record" = "السجل";
+//"Sunday" = "الأحد";
+//"Monday" = "الإثنين";
+//"Tuesday" = "الثلاثاء";
+//"Wednesday" = "الأربعاء";
+//"Thursday" = "الخميس";
+//"Friday" = "الجمعة";
+//"Saturday" = "السبت";
+"Sun" = "الأحد";
+"Mon" = "الإثنين";
+"Tue" = "الثلاثاء";
+"Wed" = "الأربعاء";
+"Thu" = "الخميس";
+"Fri" = "الجمعة";
+"Sat" = "السبت";
+"Save" = "حفظ";
+"Today" = "اليوم";
+"now" = "الآن";
+"PM" = "م";
+"AM" = "ص";
+" mg/dl " = "ملغ/ديسيلتر";
+"Average" = "المتوسط";
+"Maximum" = "الأعلى";
+"Minimum" = "الأدنى";
+"Rminder" = "تذكير";
+"Your last measurement was abnormal, would you like to check again?" = "قياسك الأخير لم يكن طبيعي، هل تريد التحقق منه مرة أخرى؟";
+"OK" = "حسنًا";
+"Dismiss" = "تجاهل";
+
+
+
