@@ -27,11 +27,13 @@ struct AddPage: View {
                     .font(.system(size: 16))
             }
             .accessibilityValue(getDateToday())
+            .padding(.top, 20)
             Picker(selection: $selection, label: Text(""),content:{
                 ForEach(25..<700){
                     number in
                     Text("\(number)")
                         .tag("\(number)")
+//                    selection = number
                 }
             })
             //            .accessibilityValue(selection)
@@ -52,23 +54,42 @@ struct AddPage: View {
                     }
                 }
                 
-                //schedule notification
-                let content = UNMutableNotificationContent()
-                content.title = "Reminder"
-                content.subtitle = "you have 10 sec"
-                content.sound = .default
-                content.categoryIdentifier = "myCategory"
-                let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
-                UNUserNotificationCenter.current().setNotificationCategories([category])
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-                let request = UNNotificationRequest(identifier: "milk", content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request) { (error) in
-                    if let error = error{
-                        print(error.localizedDescription)
-                    }else{
-                        print("scheduled successfully")
+//                if(selection>140 || selection<90){
+                    //schedule notification
+                    let content = UNMutableNotificationContent()
+                    content.title = "Reminder"
+                    content.subtitle = "you have 10 sec"
+                    content.sound = .default
+                    content.categoryIdentifier = "myCategory"
+                    let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+                    UNUserNotificationCenter.current().setNotificationCategories([category])
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+                    let request = UNNotificationRequest(identifier: "milk", content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request) { (error) in
+                        if let error = error{
+                            print(error.localizedDescription)
+                        }else{
+                            print("scheduled successfully")
+                        }
                     }
-                }
+//                }
+//                //schedule notification
+//                let content = UNMutableNotificationContent()
+//                content.title = "Reminder"
+//                content.subtitle = "you have 10 sec"
+//                content.sound = .default
+//                content.categoryIdentifier = "myCategory"
+//                let category = UNNotificationCategory(identifier: "myCategory", actions: [], intentIdentifiers: [], options: [])
+//                UNUserNotificationCenter.current().setNotificationCategories([category])
+//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+//                let request = UNNotificationRequest(identifier: "milk", content: content, trigger: trigger)
+//                UNUserNotificationCenter.current().add(request) { (error) in
+//                    if let error = error{
+//                        print(error.localizedDescription)
+//                    }else{
+//                        print("scheduled successfully")
+//                    }
+//                }
                 
             }
             .padding(.top)
