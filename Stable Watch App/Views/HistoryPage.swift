@@ -89,7 +89,7 @@ struct DataVieww: View{
                     Text("\(result) mg/dl ")
                         .padding(.leading)
                         .accessibilityLabel("measurement")
-                        .accessibilityValue(Text("\(result)"+" mg/dl "))
+                        .accessibilityValue(Text("\(result)"+" mg/dl"))
                     Spacer()
                 }
             }
